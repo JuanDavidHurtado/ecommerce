@@ -14,14 +14,14 @@ class CLogin extends Controller
     public function redirect()
     {
 
-        return Socialite::driver('google')->stateless()->redirect();
+        return Socialite::driver('google')->redirect();
         //return Socialite::driver('google')->redirect();
     }
 
 
     public function callback()
     {
-        $socialiteUser = Socialite::driver('google')->stateless()->user();
+        $socialiteUser = Socialite::driver('google')->user();
 
         //dd($socialiteUser->id);
 
@@ -53,12 +53,12 @@ class CLogin extends Controller
 
     public function redirectFacebook()
     {
-        return Socialite::driver('facebook')->stateless()->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
     public function callbackFacebook()
     {
-        $socialiteUser = Socialite::driver('facebook')->stateless()->user();
+        $socialiteUser = Socialite::driver('facebook')->user();
 
         $user = MUsuario::where('id_user', $socialiteUser->id)->first();
 
